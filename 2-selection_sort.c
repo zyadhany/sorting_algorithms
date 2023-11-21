@@ -27,9 +27,10 @@ void selection_sort(int *array, size_t size)
 				at = j;
 			}
 		}
-		if (i != at){
+		if (i != at)
+		{
 			array[at] = array[i];
-			array[i] = mn;			
+			array[i] = mn;
 			print_array(array, size);
 		}
 	}
