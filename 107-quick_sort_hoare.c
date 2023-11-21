@@ -32,15 +32,21 @@ void swap(int *array, size_t size, int *a, int *b)
  */
 void quickSort(int *array, size_t size, size_t a, size_t b)
 {
-	size_t i, j;
+	size_t i = a, j = b;
 
 	if (b <= a)
 		return;
 
-	for (i = j = a; j < b; j++)
-		if (array[j] < array[b])
-			swap(array, size, &array[j], &array[i++]);
-	swap(array, size, &array[b], &array[i]);
+	while (i < j)
+	{
+		if (array[i] < array[b])
+			i++;
+		else if (array[j] >= array[b])
+			j--;
+		else
+			swap(array, size, &array[i], &array[j]);
+	}
+	swap(array, size, &array[i], &array[b]);
 
 	if (i)
 		quickSort(array, size, a, i - 1);
