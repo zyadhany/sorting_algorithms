@@ -22,22 +22,15 @@ void merge_sort(int *array, size_t size)
 	X = malloc(sizeof(int) * size);
 
 	while (l < size / 2 && r < (size + 1) / 2)
-	{
 		if (array[l] <= array[r + size / 2])
 			X[at++] = array[l++];
 		else
 			X[at++] = array[r++ + size / 2];
-	}
-	
-	while (l < size / 2)
-	{
-		X[at++] = array[l++];
-	}
 
+	while (l < size / 2)
+		X[at++] = array[l++];
 	while (r < (size + 1) / 2)
-	{
 		X[at++] = array[r++ + size / 2];
-	}
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -46,7 +39,6 @@ void merge_sort(int *array, size_t size)
 	print_array(array + size / 2, (size + 1) / 2);
 	printf("[Done]: ");
 	print_array(X, size);
-
 
 	for (at = 0; at < size; at++)
 		array[at] = X[at];
