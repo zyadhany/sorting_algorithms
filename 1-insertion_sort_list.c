@@ -27,6 +27,14 @@ void insertion_sort_list(listint_t **list)
 				at->prev->next = at->next;
 				at->next = at->prev;
 				at->prev = at->prev->prev;
+				at->next->prev = at;
+
+				if (at->prev)
+					at->prev->next = at;
+				else
+					*list = at;
+				if (at->next->next)
+					at->next->next->prev = at->next;
 				print_list(*list);
 				continue;
 			}
